@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>账单合同</title>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" type="text/css" href="css/StatisticalFigure.css"/>
+	</head>
+
+	<body>
+		<div class="container flgure">
+			<div class="content">
+				<ul class="clearfix info">
+					<li class="active">账单合同</li>
+				</ul>
+				<div class="basic">
+					<div class="basicInfo select active ">
+						<div id="leave-statistical">
+						</div>
+						<div class="leave">
+							<ul>
+								<li>账单总数量 : 1</li>
+                                <li>入住总人数 : 1</li>
+                                <li>已收帐单总费用 : 1</li>
+                                
+							</ul>
+						</div>
+						<div id="gender-statistical"></div>
+						<div>
+							<ul class="gender">
+								<li>合同签订数量 : 1</li>
+                                <li>押金总额 : 100</li>
+							</ul>
+						</div>
+						<div id="province-statistical"></div>
+						<div>
+							<ul class="province clearfix">
+								<li>总收入费用 : 100</li>
+							</ul>
+						</div>
+	
+					</div>
+					<div class="payInfo select ">
+						<div id="payInfo"></div>
+						<div id="payInfo1"></div>
+					</div>
+					<div class="employmentInfo select">
+						<div id="employment_industry"></div>
+						<div id="unit_properties" ></div>
+						<div id="postgraduate_employment" ></div>
+					</div>
+					<div class="provinceInfo select">
+						<div id="map"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/china.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/yonghuBasicInformation.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script>
+			getEchartsMap();
+			$('.info li').click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+				$('.basic .select').eq($("ul li").index(this)).addClass("active").siblings().removeClass("active")
+			});
+		</script>
+
+	</body>
+
+</html>

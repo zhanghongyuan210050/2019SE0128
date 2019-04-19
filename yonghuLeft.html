@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/yonghuLeft.css">
+		<script src="js/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div class="nav">
+			<div class="nav-list">
+				<div class="nav-tit"><!-- id="personal">-->
+					<a href="yonghudexinxi.html" target="main">
+						<img src="images/personal-msg.png" style="height: 25px" alt="">
+						<span>个人信息</span>
+					</a>
+				</div>
+				<div class="personal-list" id="personal-child">
+				</div>
+				<div class="nav-tit">
+					<a href="yonghuInformation.html" target="main">
+						<img src="images/archives-msg.png" alt="">
+						<span>房间信息</span><!--房间信息替换成房间信息-->
+					</a>
+				</div>
+				<div class="nav-tit">
+					<a href="yonghuEmInformation.html" target="main">
+						<img src="images/job-msg.png" alt="">
+						<span>居住情况</span><!--居住情况替换成居住情况-->
+					</a>
+				</div>
+				<div class="nav-tit">
+					<a href="investigation.html" target="main">
+					<img src="images/job-change.png" alt="">
+					<span>账单</span>
+					</a>
+				</div>
+				<div class="nav-tit">
+					<a href="yonghuPubMed.html" target="main">
+						<img src="images/PubMed-msg.png" alt="">
+						<span>合同</span>
+					</a>
+				</div>
+				<div class="nav-tit">
+					<a href="yonghuRevise.html" target="main">
+					<img src="images/modify-password.png" alt="">
+					<span>修改密码</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(document).ready(function(){
+				$('#personal').on('click',function(){
+					$('#personal-child').fadeToggle(300);
+				});
+				/*let aLi = $('#personal-child li');*/
+				aLi.on('click',function(){
+					$(this).addClass('active').siblings('li').removeClass('active');
+				})
+			});
+		</script>
+	</body>
+</html>

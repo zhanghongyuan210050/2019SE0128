@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>合同信息</title>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" type="text/css" href="css/yonghuPubMed.css"/>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="content">
+				<div class="bx">
+					<div class="box">
+						<div class="top">
+							<div class="left">当前位置>合同</div>
+							<div class="right">
+								<span class="l" style="margin-right: 20px">编辑</span>
+								<span class="r">保存</span>
+							</div>
+						</div>
+						<div class="content">
+							<div class="left">
+								<i class="column"></i>
+								<span class="tit">合同信息</span>
+							</div>
+						</div>
+						<div class="bottom">
+							<ul class="one">
+								<li>
+									<span>同意房子租赁关系：</span>
+									<input type="text" class="oInp" disabled/>
+								</li>
+								<li>
+									<span>同意收取押金：</span>
+									<input type="text" class="oInp" disabled/>
+								</li>
+								<li>
+									<span>同意房子设施保护：</span>
+									<input type="text" class="oInp" disabled/>
+								</li>
+								<li>
+									<span>同意水费、电费、车位费、网费收取</span>
+									<input type="text" class="oInp" disabled/>
+								</li>
+								<li>
+									<span>同意签约租赁合同：</span>
+									<input type="text" class="oInp" disabled/>
+								</li>
+								<li>
+									<span>租赁人：</span>
+									<input type="text" class="oInp" disabled/>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script>
+			$('.l').click(function () {
+			    $('.oInp').removeAttr('disabled');
+				$.ajax({
+					
+					data: {
+					  t: Math.random()
+					},
+					type: 'get',
+					dataType: 'jsonp',
+					'jsonp': 'callback'
+				}).then(function (res) {
+                     console.log(res);
+                },function (err) {
+                    console.log(err);
+                });
+			});
+            $('.r').click(function () {
+                $('.oInp').attr('disabled','disabled');
+
+            });
+
+		</script>
+	</body>
+</html>

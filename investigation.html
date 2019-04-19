@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账单</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/punishment.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="header clearfix">
+                <div class="top fl">当前位置>账单</div>
+                <div class="bottom fr">
+                    <a href="javascript:;"  class="l">编辑</a>
+                    <a href="javascript:;" class="r">保存</a>
+                </div>
+            </div>
+            <div class="main">
+                <!--账单明细-->
+                <div class="BasicInformation">
+                    <div class="title">
+                        账单明细
+                    </div>
+                </div>
+                <div class="content clearfix">
+                    <div class="left fl">
+                        <div>
+                            <label for="">水费：</label>
+                            <input id="province" type="text" value="" class="oInp" disabled>
+                        </div>
+                        <div>
+                            <label for="">电费：</label>
+                            <input  id="unit_pro" type="text" value="" class="oInp" disabled>
+                        </div>
+                        <div>
+                            <label for="">是否损坏房子：</label>
+                            <select id="entrance" class="oInp" disabled style="border:0; outline: none;width: 150px; height: 30px; border: 1px solid #ccc; background: #fff" value="0" >
+                                <option value="1">
+                                    否
+                                </option>
+                                <option value="0">
+                                    是
+                                </option>
+                            </select>
+
+                        </div>
+                        <div>
+                            <label for="">备注说明房子损坏情况：</label>
+                            <input id="remarks" type="text" value="" style="width:170px;" class="oInp" disabled>
+                        </div>
+                    </div>
+                    <div class="right fr">
+                        <div>
+                            <label for="">车位费：</label>
+                            <input id="city" type="text" value="" class="oInp" disabled>
+                        </div>
+                        <div>
+                            <label for="">网费：</label>
+                            <input id="expect_salary" type="text" value="" class="oInp" disabled>
+                        </div>
+                        <div>
+                        <label for="">总费用：</label>
+                        <input id="work_pro" type="text" value="" class="oInp" disabled>
+                    </div>
+                    </div>
+                    <div class="reason fl">
+                        <p>反馈的建议：</p>
+                        <div style="margin-left: 65px ;width:515px;height:118px;">
+                            <textarea id="situation"  class="oInp" disabled></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        $('select').attr('value','0');
+        $.ajax({
+            url: "http://101.201.154.205:9090/survey/getSurveyByStuId",
+            data: {
+                stuId:1,
+                t: Math.random()
+            },
+            type: 'get',
+            dataType: 'jsonp',
+            'jsonp': 'callback'
+            }).then(function (res) {
+            $('select option').each(function(index,arg){
+                if($(this).val() == res.entrance){
+                    $(this).attr('selected','selected');
+                }
+            });
+            $('select').attr('value',res.entrance);
+            $('#expect_salary').attr('value',res.expect_salary);
+            $('#situation').text(res.situation);
+            $('#city').attr('value',res.city);
+            $('#work_pro').attr('value',res.work_pro);
+            $('#remarks').attr('value',res.remarks);
+            $('#unit_pro').attr('value',res.unit_pro);
+            $('#province').attr('value',res.province);
+
+
+        },function (err) {
+            console.log(err);
+        });
+        $('.l').click(function () {
+            $('.oInp').removeAttr('disabled');
+        });
+
+        $('.r').click(function () {
+            $('.oInp').attr('disabled','disabled');
+
+            $.ajax({
+               
+                data: {
+                    stu_id:"1",
+                    expect_salary:$('#expect_salary').val(),
+                    entrance:$('select').val(),
+                    remarks:$('#remarks').val(),
+                    province:$('#province').val(),
+                    city:$('#city').val(),
+                    situation:$('#situation').val(),
+                    work_pro:$('#work_pro').val(),
+                    unit_pro:$('#unit_pro').val(),
+                    t: Math.random()
+                },
+                type: 'get',
+                dataType: 'jsonp',
+                'jsonp': 'callback'
+            }).then(function (res) {
+                console.log(res);
+
+            },function (err) {
+                console.log(err);
+            });
+
+
+        });
+
+    </script>
+
+</body>
+</html>

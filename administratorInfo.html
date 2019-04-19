@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>房间信息</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/administratorInfo.css"/>
+	</head>
+	<body>
+		<div class="container flgure">
+			<div class="content">
+				<ul class="clearfix info">
+					<li class="active">房间信息</li>
+				</ul>
+				<div class="basic">
+					<div class="basicInfo select active">
+						<dl class="table-title">
+							<dt>房间号</dt>
+							<dt>租客编号</dt>
+							<dt>姓名</dt>
+							<dt>手机</dt>
+							<dt>总费用</dt>
+						</dl>
+						<dl>
+							<dd>01</dd>
+							<dd>201310202052</dd>
+							<dd>小王</dd>
+							<dd>11111111111</dd>
+							<dd>100</dd>
+						</dl>
+						<dl>
+							<dd>01</dd>
+							<dd>201310202052</dd>
+							<dd>小王</dd>
+							<dd>11111111111</dd>
+							<dd>100</dd>
+						</dl>
+						<dl>
+							<dd>01</dd>
+							<dd>201310202052</dd>
+							<dd>小王</dd>
+							<dd>11111111111</dd>
+							<dd>100</dd>
+						</dl>
+						<ol>
+							<li class="active">1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>&gt;</li>
+						</ol>
+					</div>
+					<!--<div class="payInfo select">
+						<dl class="table-title">
+							<dt>房间号</dt>
+							<dt>租客编号</dt>
+							<dt>姓名</dt>
+							<dt>手机</dt>
+							<dt>总费用</dt>
+						</dl>
+						<dl>
+							<dd>01</dd>
+							<dd>201485856222</dd>
+							<dd>小李</dd>
+							<dd>11111111111</dd>
+							<dd>100</dd>
+						</dl>
+						<dl>
+							<dd>01</dd>
+							<dd>201485856222</dd>
+							<dd>小李</dd>
+							<dd>11111111111</dd>
+							<dd>100</dd>
+						</dl>
+						<dl>
+							<dd>01</dd>
+							<dd>201485856222</dd>
+							<dd>小李</dd>
+							<dd>11111111111</dd>
+							<dd>100</dd>
+						</dl>
+						<ol>
+							<li class="active">1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>&gt;</li>
+						</ol>
+					</div>-->
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.info li').click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+				$('.basic .select').eq($("ul li").index(this)).addClass("active").siblings().removeClass("active")
+			});
+			$('.basicInfo ol').on('click','li',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+			$('.payInfo ol').on('click','li',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+		</script>
+	</body>
+</html>
